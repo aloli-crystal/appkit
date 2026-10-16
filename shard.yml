@@ -1,5 +1,5 @@
 name: appkit
-version: 0.1.3
+version: 0.1.4
 
 authors:
   - Philippe <papilip@github>
@@ -18,4 +18,4 @@ scripts:
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: "~> 1.6"
+    version: "~> 1.7"

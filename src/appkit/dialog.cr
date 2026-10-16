@@ -19,7 +19,7 @@ module AppKit
     # types: extensions séparées par des virgules ("adoc,txt,md")
     def self.open_file(title : String = "Ouvrir", types : String = "") : String?
       ptr = LibAppKit.appkit_open_panel(title.to_unsafe, types.to_unsafe)
-      return nil if ptr.null?
+      return if ptr.null?
       path = String.new(ptr)
       LibAppKit.appkit_free(ptr.as(Void*))
       path
@@ -28,7 +28,7 @@ module AppKit
     # Ouvrir un dossier. Retourne le chemin ou nil.
     def self.open_folder(title : String = "Choisir un dossier") : String?
       ptr = LibAppKit.appkit_open_folder(title.to_unsafe)
-      return nil if ptr.null?
+      return if ptr.null?
       path = String.new(ptr)
       LibAppKit.appkit_free(ptr.as(Void*))
       path
@@ -37,7 +37,7 @@ module AppKit
     # Sauvegarder un fichier. Retourne le chemin ou nil.
     def self.save_file(title : String = "Enregistrer", default_name : String = "") : String?
       ptr = LibAppKit.appkit_save_panel(title.to_unsafe, default_name.to_unsafe)
-      return nil if ptr.null?
+      return if ptr.null?
       path = String.new(ptr)
       LibAppKit.appkit_free(ptr.as(Void*))
       path
